@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from "react";
+import Register from "./components/Register";
+import Login from "./components/Login";
+import CalculateTip from "./components/CalculateTip";
+import TipRecords from "./components/TipRecords";
+import "./App.css";
 
-function App() {
-  const [count, setCount] = useState(0)
+const App = () => {
+    const [token, setToken] = useState(localStorage.getItem("token"));
+    const [user, setUser] = useState(localStorage.getItem("name"));
 
-  return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    return (
+        <div className="App">
+            <header className="App-header">
+                <h1>Tip Manager</h1>
+            </header>
+            <main>
+                {!token ? (
+                    <>
+                        <div className="flex">
+                            <Register setToken={setToken} setUser={setUser} />
+                            <Login setToken={setToken} setUser={setUser} />
+                        </div>
+                    </>
+                ) : (
+                    <>
+                        <h2>Welcome, {user}</h2>
+                        <div className="flex">
+                            <CalculateTip token={token} />
+                            <TipRecords token={token} />
+                        </div>
+                    </>
+                )}
+            </main>
+        </div>
+    );
+};
 
-export default App
+export default App;

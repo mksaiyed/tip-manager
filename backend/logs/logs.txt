@@ -1,0 +1,11 @@
+1716574555262 :: POST :: /api/user :: 200
+1716574660748 :: POST :: /api/tip/calculate :: 200
+1716574923880 :: POST :: /api/user/login :: 200
+1716575015906 :: POST :: /api/user/login :: 200
+1716575079057 :: GET :: /api/tip?startDate=12-05-2024&endDate=25-05-2024 :: 200
+1716575462521 :: POST :: /api/user/login :: 200
+1716575954403 :: POST :: /api/user/login :: 200
+1716576053028 :: POST :: /api/user/login :: 200
+1716576157016 :: POST :: /api/user :: 200
+1716576189306 :: POST :: /api/user/login :: 200
+1716576201653 :: POST :: /api/tip/calculate :: 200
